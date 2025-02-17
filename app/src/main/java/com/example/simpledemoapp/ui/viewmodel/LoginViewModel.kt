@@ -1,4 +1,4 @@
-package com.example.simpledemoapp
+package com.example.simpledemoapp.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import java.security.MessageDigest
 import android.util.Base64
+import com.example.simpledemoapp.UserPreferences
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private val userPreferences = UserPreferences(application)

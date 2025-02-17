@@ -1,4 +1,4 @@
-package com.example.simpledemoapp
+package com.example.simpledemoapp.ui.view
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.example.simpledemoapp.ui.viewmodel.LoginViewModel
 import kotlinx.coroutines.launch
 
 @Composable
