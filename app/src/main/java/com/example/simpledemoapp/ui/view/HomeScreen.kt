@@ -105,31 +105,63 @@ fun HomeScreen(
                     modifier = Modifier.fillMaxHeight(0.7f)
                 ) {
                     items(products) { product ->
-                        ProductCard(product)
+                        ProductCard(product, navController)
                     }
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+//                LazyColumn(
+//                    modifier = Modifier.fillMaxHeight(0.7f)
+//                ) {
+//                    items(products) { product ->
+//                        ProductCard(product)
+//                        navController.navigate("productDetail/${product.id}/${product.name}/${product.price}")
+//
+//
+//                    }
+//                }
 
-                Button(
-                    onClick = {
-                        scope.launch {
-                            viewModel.logout()
-                            snackbarHostState.showSnackbar("Logged out successfully! 🚀")
-                            kotlinx.coroutines.delay(1000)
-                            navController.navigate("login") {
-                                popUpTo("home") { inclusive = true }
-                            }
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(50.dp),
-                    shape = RoundedCornerShape(12.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF145DA0))
-                ) {
-                    Text(text = "Logout", fontSize = 18.sp, color = Color.White)
-                }
+                Spacer(modifier = Modifier.height(30.dp))
+
+//                Button(
+//                    onClick = {
+//                        if (products.isNotEmpty()) {
+//                            val product = products.first() // Passing the first product as an example
+//                            navController.navigate("productDetail/${product.id}/${product.name}/${product.price}")
+//                        } else {
+//                            scope.launch {
+//                                snackbarHostState.showSnackbar("No products available!")
+//                            }
+//                        }
+//                    },
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .height(50.dp),
+//                    shape = RoundedCornerShape(12.dp),
+//                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF145DA0))
+//                ) {
+//                    Text(text = "Next", fontSize = 18.sp, color = Color.White)
+//                }
+
+
+//                Button(
+//                    onClick = {
+//                        scope.launch {
+//                            viewModel.logout()
+//                            snackbarHostState.showSnackbar("Logged out successfully! 🚀")
+//                            kotlinx.coroutines.delay(1000)
+//                            navController.navigate("login") {
+//                                popUpTo("home") { inclusive = true }
+//                            }
+//                        }
+//                    },
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .height(50.dp),
+//                    shape = RoundedCornerShape(12.dp),
+//                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF145DA0))
+//                ) {
+//                    Text(text = "Logout", fontSize = 18.sp, color = Color.White)
+//                }
             }
         }
     }

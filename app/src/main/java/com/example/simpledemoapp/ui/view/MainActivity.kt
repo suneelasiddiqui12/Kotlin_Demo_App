@@ -20,7 +20,15 @@ fun AppNavigator() {
 
     NavHost(navController, startDestination = "login") {
         composable("login") { LoginScreen(navController) }
-        composable("home") { HomeScreen(navController) } // No arguments needed anymore
+        composable("home") { HomeScreen(navController) }
+        composable("productDetail/{productId}/{productName}/{productPrice}") { backStackEntry ->
+            val productId = backStackEntry.arguments?.getString("productId")
+            val productName = backStackEntry.arguments?.getString("productName")
+            val productPrice = backStackEntry.arguments?.getString("productPrice")
+
+            ProductDetailScreen(navController, productId, productName, productPrice)
+        }
     }
 }
+
 

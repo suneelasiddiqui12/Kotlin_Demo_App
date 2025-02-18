@@ -112,7 +112,7 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = viewMo
                                 snackbarHostState.showSnackbar("Login successful! 🎉")
 
                                 // Navigate after showing the success message
-                                kotlinx.coroutines.delay(1000) // Short delay before navigation
+                                kotlinx.coroutines.delay(200) // Short delay before navigation
                                 navController.navigate("home")
                             }
                         }
