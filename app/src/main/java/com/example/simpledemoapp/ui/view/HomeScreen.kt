@@ -1,5 +1,6 @@
 package com.example.simpledemoapp.ui.view
 
+import ProductCard
 import android.app.Application
 import android.util.Log
 import androidx.compose.foundation.background
@@ -15,19 +16,15 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
-import com.example.simpledemoapp.UserPreferences
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
+import com.example.simpledemoapp.ui.viewmodel.HomeViewModel
 import kotlinx.coroutines.launch
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun HomeScreen(
     navController: NavController,
-    viewModel: HomeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+    viewModel: HomeViewModel = viewModel()
 ) {
     val user by viewModel.user.collectAsState()
     val products by viewModel.products.collectAsState()
@@ -151,61 +148,4 @@ fun UserInfo(label: String, value: String) {
     }
 }
 
-// Product Data Class
-data class Product(val id: Int, val name: String, val price: String)
 
-// Product Card UI
-@Composable
-fun ProductCard(product: Product) {
-    Card(
-        shape = RoundedCornerShape(12.dp),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Column {
-                Text(text = product.name, fontSize = 20.sp, color = Color.Black)
-                Text(text = "💲${product.price}", fontSize = 16.sp, color = Color.Gray)
-            }
-        }
-    }
-}
-
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
-    private val userPreferences = UserPreferences(application)
-
-    private val _user = MutableStateFlow(Triple<String?, String?, String?>(null, null, null))
-    val user = _user.asStateFlow()
-
-    private val _products = MutableStateFlow(
-        listOf(
-            Product(1, "iPhone 15 Pro", "999"),
-            Product(2, "MacBook Pro 14", "1999"),
-            Product(3, "Samsung Galaxy S23", "899"),
-            Product(4, "Sony WH-1000XM5", "399")
-        )
-    )
-    val products = _products.asStateFlow()
-
-    init {
-        viewModelScope.launch {
-            userPreferences.getUser().collectLatest { userData ->
-                _user.value = userData
-            }
-        }
-    }
-
-    fun logout() {
-        viewModelScope.launch {
-            userPreferences.clearUser()
-        }
-    }
-}

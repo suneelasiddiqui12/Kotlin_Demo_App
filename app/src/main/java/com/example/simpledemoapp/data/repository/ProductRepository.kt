@@ -1,6 +1,6 @@
 package com.example.simpledemoapp.repository
 
-import com.example.simpledemoapp.ui.view.Product
+import Product
 
 class ProductRepository {
     fun getProducts(): List<Product> {
