@@ -21,7 +21,11 @@ fun ProductDetailScreen(
     navController: NavController,
     productId: String?,
     productName: String?,
-    productPrice: String?
+    productPrice: String?,
+    productDescription: String?,
+    productColor: String?,
+    productAvailability: String?,
+
 ) {
     // Gradient Background
     val gradientBackground = Brush.verticalGradient(
@@ -79,6 +83,9 @@ fun ProductDetailScreen(
 
                         ProductInfo(label = "💰 Price:", value = "💲${productPrice ?: "N/A"}")
                         ProductInfo(label = "🆔 Product ID:", value = productId ?: "N/A")
+                        ProductInfo(label = "🆔 Product Description:", value = productDescription ?: "N/A")
+                        ProductInfo(label = "🆔 Product Color:", value = productColor ?: "N/A")
+                        ProductInfo(label = "🆔 Product Availability:", value = productAvailability ?: "N/A")
                     }
                 }
             }

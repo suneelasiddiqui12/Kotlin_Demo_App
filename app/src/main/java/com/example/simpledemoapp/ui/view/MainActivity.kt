@@ -21,12 +21,15 @@ fun AppNavigator() {
     NavHost(navController, startDestination = "login") {
         composable("login") { LoginScreen(navController) }
         composable("home") { HomeScreen(navController) }
-        composable("productDetail/{productId}/{productName}/{productPrice}") { backStackEntry ->
+        composable("productDetail/{productId}/{productName}/{productPrice}/{productDescription}/{productColor}/{productAvailability}") { backStackEntry ->
             val productId = backStackEntry.arguments?.getString("productId")
             val productName = backStackEntry.arguments?.getString("productName")
             val productPrice = backStackEntry.arguments?.getString("productPrice")
+            val productDescription = backStackEntry.arguments?.getString("productDescription")
+            val productColor = backStackEntry.arguments?.getString("productColor")
+            val productAvailability = backStackEntry.arguments?.getString("productAvailability")
 
-            ProductDetailScreen(navController, productId, productName, productPrice)
+            ProductDetailScreen(navController, productId, productName, productPrice, productDescription, productColor, productAvailability)
         }
     }
 }

@@ -16,7 +16,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 // Product Data Class
-data class Product(val id: Int, val name: String, val price: String)
+data class Product(
+    val id: Int,
+    val name: String,
+    val price: String,
+    val description: String,
+    val color: String,
+    val availability: String
+    )
 
 // Product Card UI with Click Event
 @Composable
@@ -28,7 +35,7 @@ fun ProductCard(product: Product, navController: NavController) {
             .padding(8.dp)
             .clickable {
                 // Navigate to ProductDetailScreen with product details
-                navController.navigate("productDetail/${product.id}/${product.name}/${product.price}")
+                navController.navigate("productDetail/${product.id}/${product.name}/${product.price}/${product.description}/${product.color}/${product.availability}")
             },
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
