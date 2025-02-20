@@ -11,7 +11,8 @@ class ProductRepository {
             "20333",
             "The iPhone 15 Pro Max is a testament to excellence, designed for photographers, creators, professionals, and enthusiasts who demand the very best. ",
             "Blue, Black, Pink",
-            "In-Stock"
+            "In-Stock",
+            "\"New review: Great product! Highly recommended.\""
             ),
         Product(
             2,
@@ -19,7 +20,8 @@ class ProductRepository {
             "19994",
             "Adjustable built-in kickstand, especially designed for ergonomic typing angles. Not only to facilitate work, but to offer you a better visual experience.",
             "Pink, Red, Yellow",
-            "In-Stock"
+            "In-Stock",
+            "\"New review: Worst product ever\""
             ),
         Product(
             3,
@@ -27,7 +29,8 @@ class ProductRepository {
             "89933",
             "Get ready for a Gallery full of epic night shots everyone will want. Nightography's enhanced AI keeps details clear, so low light photos and videos will be bright and colorful from dusk to dawn and back again.",
             "Blue, Red, Yellow",
-            "Out-of-Stock"
+            "Out-of-Stock",
+            "\"New review: Great for workplaces\""
             ),
         Product(
             4,
@@ -35,7 +38,8 @@ class ProductRepository {
             "39559",
             "With two processors controlling eight microphones, Auto NC Optimizer for automatically optimising noise cancelling based on your wearing conditions",
             "Black, Red, Yellow, Green",
-            "Out-of-Stock"
+            "Out-of-Stock",
+            "\"New review: Kindly restock\""
             )
     )
 }

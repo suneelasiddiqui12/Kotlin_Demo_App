@@ -28,8 +28,9 @@ fun AppNavigator() {
             val productDescription = backStackEntry.arguments?.getString("productDescription")
             val productColor = backStackEntry.arguments?.getString("productColor")
             val productAvailability = backStackEntry.arguments?.getString("productAvailability")
+            val productRating = backStackEntry.arguments?.getString("productRating")
 
-            ProductDetailScreen(navController, productId, productName, productPrice, productDescription, productColor, productAvailability)
+            ProductDetailScreen(navController, productId, productName, productPrice, productDescription, productColor, productAvailability, productRating)
         }
     }
 }

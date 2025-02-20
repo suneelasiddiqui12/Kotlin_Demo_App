@@ -22,7 +22,8 @@ data class Product(
     val price: String,
     val description: String,
     val color: String,
-    val availability: String
+    val availability: String,
+    val rating: String
     )
 
 // Product Card UI with Click Event
