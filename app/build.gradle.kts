@@ -80,5 +80,7 @@ dependencies {
     implementation(libs.google.accompanist.swiperefresh)
     implementation (libs.androidx.material3.v120)
     implementation (libs.androidx.foundation)
+    implementation(libs.coil.compose)
+
 
 }

@@ -1,6 +1,7 @@
 [versions]
 accompanistSwiperefreshVersion = "0.30.1"
 agp = "8.5.0-rc01"
+coilComposeVersion = "2.4.0"
 datastorePreferences = "1.1.2"
 foundationVersion = "1.7.7"
 kotlin = "1.9.0"
@@ -26,6 +27,7 @@ androidx-foundation = { module = "androidx.compose.foundation:foundation", versi
 androidx-material3-v120 = { module = "androidx.compose.material3:material3", version.ref = "material3Version" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-navigation-compose-v275 = { module = "androidx.navigation:navigation-compose", version.ref = "navigationComposeVersion" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilComposeVersion" }
 google-accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanistSwiperefreshVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

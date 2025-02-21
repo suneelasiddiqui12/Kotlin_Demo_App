@@ -14,12 +14,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.layout.ContentScale
 import com.yourapp.ui.components.CustomAppBar
+import coil.compose.AsyncImage
 
-@OptIn(ExperimentalMaterial3Api::class)
+
+
 @Composable
 fun ProductDetailScreen(
     navController: NavController,
@@ -29,7 +31,8 @@ fun ProductDetailScreen(
     productDescription: String?,
     productColor: String?,
     productAvailability: String?,
-    productRating: String?
+    productRating: String?,
+    productImageUrl: String?
 ) {
     // Gradient Background
     val gradientBackground = Brush.verticalGradient(
@@ -64,14 +67,13 @@ fun ProductDetailScreen(
                     elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
                 ) {
                     // Replace this Box with an Image composable if you have an image resource
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(Color.LightGray),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(text = "Static Image", color = Color.White, fontSize = 20.sp)
-                    }
+                    AsyncImage(
+                        model = productImageUrl,
+                        contentDescription = "Product Image",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()              // Your error drawable
+                    )
+
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))
