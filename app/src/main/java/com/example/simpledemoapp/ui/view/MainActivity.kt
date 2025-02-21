@@ -53,6 +53,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.simpledemoapp.ui.navigation.BottomNavigationBar
+import com.example.simpledemoapp.ui.screens.ProfileScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,7 +90,7 @@ fun AppNavigator() {
             }
             composable("home") { HomeScreen(navController) }
             composable("favorites") { LoginScreen(navController) }
-            composable("profile") { LoginScreen(navController) }
+            composable("profile") { ProfileScreen(navController) }
             composable("productDetail/{productId}/{productName}/{productPrice}/{productDescription}/{productColor}/{productAvailability}") { backStackEntry ->
                 val productId = backStackEntry.arguments?.getString("productId")
                 val productName = backStackEntry.arguments?.getString("productName")
